@@ -1,0 +1,29 @@
+main {
+    padding:5rem 10rem 0;
+}
+
+h1 {
+    text-align:center;
+}
+
+#board {
+    width:30rem;
+    height:30rem;
+    margin:0 auto;
+    border:12px solid black;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr 1fr;
+}
+
+.move {
+    padding:20px;
+}
+
+.empty {
+    background-color:#d0c6be;
+    transition:background-color 1s;
+}
+.empty:hover {
+    background-color:#bdb3ac;
+}
