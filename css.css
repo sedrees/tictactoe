@@ -2,7 +2,7 @@ main {
     padding:5rem 10rem 0;
 }
 
-h1 {
+h1,h2 {
     text-align:center;
 }
 
@@ -14,16 +14,20 @@ h1 {
     display:grid;
     grid-template-columns:1fr 1fr 1fr;
     grid-template-rows:1fr 1fr 1fr;
+    
 }
 
 .move {
     padding:20px;
-}
-
-.empty {
     background-color:#d0c6be;
     transition:background-color 1s;
+    text-align:center;
 }
-.empty:hover {
+.move:hover {
     background-color:#bdb3ac;
+}
+
+.move span {
+    font-size:4rem;
+    line-height:7rem;
 }
