@@ -1,16 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+html, body {
+    font-family:'Lilita One',Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:normal;
+    color:#202427;
+}
+
 main {
     padding:5rem 10rem 0;
 }
 
+h1 {
+    font-size:3rem;
+}
+
 h1,h2 {
     text-align:center;
+    font-weight:normal;
 }
 
 #board {
     width:30rem;
     height:30rem;
     margin:0 auto;
-    border:12px solid black;
+    border:12px solid #202427;
     display:grid;
     grid-template-columns:1fr 1fr 1fr;
     grid-template-rows:1fr 1fr 1fr;
@@ -30,4 +43,18 @@ h1,h2 {
 .move span {
     font-size:4rem;
     line-height:7rem;
+}
+
+#nameInputs {
+    display:flex;
+    justify-content:center;
+}
+
+#nameInputs label {
+    margin-left:2rem;
+    margin-right:0.5rem;
+}
+
+#makeNames {
+    margin-left:2rem;
 }
