@@ -36,8 +36,10 @@ const play = (() => {
     let oPlayer;
     let winMsg;
     let isWinner;
+    let gameState;
     const main = document.querySelector("main");
     const init = () => {
+        gameState = 1;
         const startBtn = document.querySelector("#makeNames");
         const inputDiv = document.querySelector("#nameInputs");
         inputDiv.style.display = "flex";
@@ -53,16 +55,15 @@ const play = (() => {
                 inputDiv.style.display = "none";
                 display.draw();
                 for(let i=0;i<9;i++) {
-                    display.squares[i].addEventListener('click', (e) => {
-                        play.turn(i);
+                    display.squares[i].addEventListener('click', () => {
+                        turn(i);
                     }); 
                 }
             }  
         });
-        
     }
     const turn = (location) => {
-        if (!board.positions[location]) {
+        if (!board.positions[location] && gameState) {
             board.positions[location] = currentPlayer.team;
             /* Update each win condition position to match player marker */
             for(let i=0;i<board.winConditions.length;i++) {
@@ -92,11 +93,7 @@ const play = (() => {
         }
     }
     const endGame = (winState) => {
-        for(let i=0;i<9;i++) {
-            display.squares[i].removeEventListener('click', (e) => {
-                play.turn(i);
-            }); 
-        }
+        gameState = 0;
         winMsg = document.createElement('h3');
         const resetBtn = document.createElement('button');
         resetBtn.textContent = "Reset";
@@ -113,7 +110,7 @@ const play = (() => {
             ]
             board.positions = [0,0,0,0,0,0,0,0,0];
             display.draw();
-            winState = 0;
+            play.winState = 0;
             xPlayer = {};
             oPlayer = {};
             currentPlayer = {};
